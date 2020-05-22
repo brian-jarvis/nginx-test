@@ -1,6 +1,7 @@
 
-FROM registry.redhat.io/ubi8/ubi
-  
+# FROM registry.redhat.io/ubi8/ubi
+FROM registry.access.redhat.com/ubi8
+
 RUN yum install -y --disableplugin=subscription-manager --nodocs nginx && yum clean all
 
 COPY dist /usr/share/nginx/html
