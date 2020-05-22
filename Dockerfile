@@ -15,9 +15,9 @@ RUN chmod o+rx -R /etc/nginx/nginx.conf
 RUN ls -lart /etc/nginx
 RUN ls -lart /usr/share/nginx/html
 
-RUN touch /run/nginx.pid \
-    && chgrp -R 0 /var/log/nginx /run/nginx.pid \
-    && chmod -R g+rwx /var/log/nginx /run/nginx.pid
+RUN touch /run/nginx.pid /var/log/nginx-access.log \
+    && chgrp -R 0 /var/log/nginx /run/nginx.pid /var/log/nginx-access.log \
+    && chmod -R g+rwx /var/log/nginx /run/nginx.pid /var/log/nginx-access.log
 EXPOSE 8080
 USER 1001
   
