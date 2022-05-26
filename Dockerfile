@@ -2,12 +2,13 @@
 # FROM registry.redhat.io/ubi8/ubi
 FROM registry.access.redhat.com/ubi8
 
+USER root
+
 RUN yum install -y --disableplugin=subscription-manager --nodocs nginx && yum clean all
 
 COPY dist /usr/share/nginx/html
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
-USER root
 RUN chmod g+rx -R /usr/share/nginx/html
 RUN chmod o+rx -R /usr/share/nginx/html
 RUN chmod g+rx -R /etc/nginx/nginx.conf
